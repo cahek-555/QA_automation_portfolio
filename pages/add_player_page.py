@@ -10,3 +10,23 @@ class AddPlayer(BasePage):
     age_input_xpath = '//*[@name="age"]'
     position_input_xpath = '//*[@name="mainPosition"]'
     submit_button_xpath = '//*[@type="submit"]'
+    toast_success_xpath = '//*[contains(@class, "toast--success")]'
+
+    def type_in_name(self, name):
+        self.field_send_keys(self.name_input_xpath, name)
+
+    def type_in_surname(self, surname):
+        self.field_send_keys(self.surname_input_xpath, surname)
+
+    def type_in_left_leg(self):
+        self.click_on_the_element(self.leg_open_list_xpath)
+        self.click_on_the_element(self.leg_left_xpath)
+
+    def type_in_age(self, age):
+        self.field_send_keys(self.age_input_xpath, age)
+
+    def type_in_position(self, position):
+        self.field_send_keys(self.position_input_xpath, position)
+
+    def click_on_the_submit_button(self):
+        self.click_on_the_element(self.submit_button_xpath)

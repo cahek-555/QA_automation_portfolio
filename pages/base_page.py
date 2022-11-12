@@ -12,3 +12,17 @@ class BasePage():
 
     def click_on_the_element(self, selector, selector_type=By.XPATH):
         return self.driver.find_element(selector_type, selector).click()
+
+    def check_title_of_page(self):
+        assert self.driver.title == self.expected_title
+
+    def assert_element_text(self, xpath, expected_text):
+        """Comparing expected text with observed value from web element
+
+            :param xpath: xpath to element with text to be observed
+            :param expected_text: text what we expecting to be found
+            :return: None
+        """
+        element = self.driver.find_element(by=By.XPATH, value=xpath)
+        element_text = element.text
+        assert expected_text == element_text
